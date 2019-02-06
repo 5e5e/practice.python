@@ -1,24 +1,49 @@
 class QuickSort:
-    def swap(self, arr, i, j):
-        temp = arr[i]
-        arr[i] = arr[j]
-        arr[j] = temp
-
-    def partition(self, arr, low, high):
-        pivot = arr[int((low + high) / 2)]
-        while True:
-            while arr[low] < pivot:
-                low += 1
-            while arr[high] > pivot:
-                high -= 1
-
-            if low < high:
-                self.swap(arr, low, high)
-            else:
-                return high
-
-    def quick_sort(self, arr, low, high):
+    def sort1(self, arr, low, high):
         if low < high:
-            p = self.partition(arr, low, high)
-            self.quick_sort(arr, low, p)
-            self.quick_sort(arr, p + 1, high)
+            p = self.partition1(arr, low, high)
+            self.sort1(arr, low, p)
+            self.sort1(arr, p + 1, high)
+
+    def partition1(self, arr, low, high):
+        pivot = arr[int((low + high) / 2)]
+        i = low - 1
+        j = high + 1
+
+        while True:
+            i += 1
+            print(i)
+            # print(low)
+            while arr[i] < pivot:
+                i += 1
+            # while arr[low] < pivot:
+            #     low += 1
+            j -= 1
+            print(j)
+            # print(high)
+            while arr[j] > pivot:
+                j -= 1
+            # while arr[high] > pivot:
+            #     high -= 1
+            if i >= j:
+                return j
+            arr[i], arr[j] = arr[j], arr[i]
+            # if low >= high:
+            #     return high
+            # arr[low], arr[high] = arr[high], arr[low]
+
+    def sort2(self, arr, low, high):
+        if low < high:
+            p = self.partition2(arr, low, high)
+            self.sort2(arr, low, p - 1)
+            self.sort2(arr, p + 1, high)
+
+    def partition2(self, arr, low, high):
+        pivot = arr[high]
+        i = low
+        for j in range(low, high):
+            if arr[j] < pivot:
+                arr[i], arr[j] = arr[j], arr[i]
+                i += 1
+        arr[i], arr[high] = arr[high], arr[i]
+        return i
