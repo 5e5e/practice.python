@@ -13,24 +13,15 @@ class QuickSort:
         while True:
             i += 1
             print(i)
-            # print(low)
             while arr[i] < pivot:
                 i += 1
-            # while arr[low] < pivot:
-            #     low += 1
             j -= 1
-            print(j)
-            # print(high)
             while arr[j] > pivot:
                 j -= 1
-            # while arr[high] > pivot:
-            #     high -= 1
+
             if i >= j:
                 return j
             arr[i], arr[j] = arr[j], arr[i]
-            # if low >= high:
-            #     return high
-            # arr[low], arr[high] = arr[high], arr[low]
 
     def sort2(self, arr, low, high):
         if low < high:
