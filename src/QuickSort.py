@@ -12,7 +12,6 @@ class QuickSort:
 
         while True:
             i += 1
-            print(i)
             while arr[i] < pivot:
                 i += 1
             j -= 1

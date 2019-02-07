@@ -30,7 +30,7 @@ class TestQuickSort(unittest.TestCase):
 
     def test_quick_sort2(self):
         quick_sort = QuickSort()
-        quick_sort.sort1(array2, 0, array2.__len__() - 1)
+        quick_sort.sort2(array2, 0, array2.__len__() - 1)
         self.assertEqual(sorted_array2, array2)
 
     def test_quick_sort3(self):
@@ -45,7 +45,7 @@ class TestQuickSort(unittest.TestCase):
 
     def test_quick_sort5(self):
         quick_sort = QuickSort()
-        quick_sort.sort1(array5, 0, array5.__len__() - 1)
+        quick_sort.sort2(array5, 0, array5.__len__() - 1)
         self.assertEqual(sorted_array5, array5)
 
 
